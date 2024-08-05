@@ -1,0 +1,37 @@
+{
+  "name": "simplest-back-end",
+  "version": "1.0.0",
+  "description": "Prueba Técnica de Simplest",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint . ",
+    "lint:fix": "eslint . --fix",
+    "format": " npx prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/xxGEPZxx/Simplest-Back-end.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xxGEPZxx/Simplest-Back-end/issues"
+  },
+  "homepage": "https://github.com/xxGEPZxx/Simplest-Back-end#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
