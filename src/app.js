@@ -1,11 +1,10 @@
 import express from 'express'
-import dotenv from 'dotenv'
+import config from './config/index.js'
 
-dotenv.config()
 const app = express()
 
 // Settings
-app.set('port', process.env.PORT)
+app.set('port', config.PORT)
 
 // Middlewares
 app.use(express.json())
