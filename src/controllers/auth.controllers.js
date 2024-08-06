@@ -41,7 +41,7 @@ const profile = (req, res, next) => {
   authServices
     .profile({ id })
     .then((data) => {
-      res.status(201).json({
+      res.status(200).json({
         status: 'success',
         message: 'User_profile',
         data,
