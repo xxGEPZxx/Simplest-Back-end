@@ -49,7 +49,7 @@ const getAllPosts = async () => {
 
     const posts = await transaction.request()
       .query(`Select [dbo].[Users].Name, [dbo].[Users].LastName, [dbo].[Users].Email,
-			[dbo].[Posts].Title, [dbo].[Posts].Description, [dbo].[Posts].Image, [dbo].[Posts].IdUsers
+			[dbo].[Posts].[IdPost], [dbo].[Posts].Title, [dbo].[Posts].Description, [dbo].[Posts].Image, [dbo].[Posts].IdUsers
 				from [dbo].[Posts] LEFT JOIN [dbo].[Users] ON [dbo].[Posts].IdUsers = [dbo].[Users].IdUsers`)
 
     if (posts.recordset.length === 0) throw Boom.notFound('Posts_not_found')
@@ -63,6 +63,7 @@ const getAllPosts = async () => {
         lastName: post.LastName,
         email: post.Email,
       },
+      idPost: post.IdPost,
       title: post.Title,
       description: post.Description,
       image: post.Image,
@@ -80,7 +81,7 @@ const getPostByUsers = async ({ id }) => {
 
   const posts = await pool.request().input('id', mssql.BigInt, id)
     .query(`Select [dbo].[Users].Name, [dbo].[Users].LastName, [dbo].[Users].Email,
-			[dbo].[Posts].Title, [dbo].[Posts].Description, [dbo].[Posts].Image, [dbo].[Posts].IdUsers
+			[dbo].[Posts].[IdPost], [dbo].[Posts].Title, [dbo].[Posts].Description, [dbo].[Posts].Image, [dbo].[Posts].IdUsers
 				from [dbo].[Posts] LEFT JOIN [dbo].[Users] ON [dbo].[Posts].IdUsers = [dbo].[Users].IdUsers  
 				Where [dbo].[Posts].IdUsers = @id`)
 
@@ -93,6 +94,7 @@ const getPostByUsers = async ({ id }) => {
       lastName: post.LastName,
       email: post.Email,
     },
+    idPost: post.IdPost,
     title: post.Title,
     description: post.Description,
     image: post.Image,
